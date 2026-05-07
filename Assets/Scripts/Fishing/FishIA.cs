@@ -22,6 +22,7 @@ public class FishIA : MonoBehaviour
         }
     }
 
+    //Fait bouger le poisson de position
     public void Move(Vector3 newTarget)
     {
         isMove = true;

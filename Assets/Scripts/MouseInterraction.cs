@@ -14,9 +14,17 @@ public class MouseInterraction : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
+                //Souleve un cailloux
                 if (hit.transform.gameObject.CompareTag("Hideout"))
                 {
-                    hit.transform.gameObject.GetComponent<Hideout>().Raising();
+                    Hideout hideout = hit.transform.gameObject.GetComponent<Hideout>();
+                    if (FishingManager.instance.isCurrentLanding)
+                    {
+                        FishingManager.instance.PlaceLanding(hideout); 
+                        return;
+                    }
+                    
+                    hideout.Raising();
                 }
             }
         }
